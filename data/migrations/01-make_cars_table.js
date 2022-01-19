@@ -1,7 +1,7 @@
 exports.up = async function (knex) {
   await knex.schema.createTable('cars', table => {
     table.increments()
-    table.string('vin', 17).unique().notNullable()
+    table.string('vin', 17).notNullable().unique()
     table.string('make').notNullable()
     table.string('model').notNullable()
     table.integer('mileage').notNullable()
@@ -11,5 +11,5 @@ exports.up = async function (knex) {
 };
 
 exports.down = async function (knex) {
-  await knex.schema.dropTableIfExists('fruits')
+  await knex.schema.dropTableIfExists('cars')
 };
